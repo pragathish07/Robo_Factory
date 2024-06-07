@@ -7,7 +7,6 @@ import About from './pages/About';
 import { AuthProvider } from './pages/AuthContext';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import AddToCart from './pages/AddToCart';
 import Wishlist from './pages/Wishlist';
 import OrdersAndReturns from './pages/OrdersAndReturns';
 import Electronics from './pages/Electronics';
@@ -23,29 +22,10 @@ import Mechanical from './pages/Mechanical';
 import Contact from './pages/Contact';
 import CustomerDashboard from './pages/CustomerDashboard';
 import CustomerSupport from './pages/CustomerSupport';
-import Dashboard from './pages/Dashboard';
-import AddProduct from './components/Products/AddProduct';
-import ProductList from './components/Products/ProductList';
-import Orders from './components/Orders/Orders';
-import EditProduct from './components/Products/EditProduct'; 
+import AddToCart from './pages/Cart';
 
 const App = () => {
-  const [products, setProducts] = useState([]);
 
-  const handleAddProduct = (productData) => {
-    setProducts([...products, productData]);
-  };
-
-  const handleUpdateProduct = (index, updatedProduct) => {
-    const updatedProducts = products.map((product, idx) =>
-      idx === index ? updatedProduct : product
-    );
-    setProducts(updatedProducts);
-  };
-
-  const handleDeleteProduct = (index) => {
-    setProducts(products.filter((_, idx) => idx !== index));
-  };
   return (
     <AuthProvider>
       <Router>
@@ -63,7 +43,7 @@ const App = () => {
               <Route path="pages/orders" element={<OrdersAndReturns />} />
               <Route path="/customerdashboard" element={<CustomerDashboard />} />
               <Route path="/customer-support" element={<CustomerSupport />} />
-              
+
               <Route path="/shop/electronics" element={<Electronics />} />
               <Route path="/shop/radios" element={<Radios />} />
               <Route path="/shop/motor-and-gearboxes" element={<MotorsAndGearboxes />} />
@@ -75,17 +55,7 @@ const App = () => {
               <Route path="/shop/wires-cables-connections" element={<WiresCablesConnections />} />
               <Route path="/shop/mechanical" element={<Mechanical />} />
 
-              <Route path="/" element={<Dashboard products={products} />} />
-          <Route path="/add-product" element={<AddProduct onSubmit={handleAddProduct} />} />
-          <Route
-            path="/product-list"
-            element={<ProductList products={products} onDelete={handleDeleteProduct} />}
-          />
-          <Route path="/orders" element={<Orders />} />
-          <Route
-            path="/edit-product/:index"
-            element={<EditProduct products={products} onUpdate={handleUpdateProduct} />}
-          />
+
 
               {/* Add more routes */}
             </Routes>
