@@ -1,5 +1,3 @@
-/* ProductCard.css */
-
 .product-card {
   width: 200px;
   display: flex;
@@ -49,6 +47,27 @@
 .rating .star {
   color: #ff9900;
   margin-right: 2px;
+}
+
+.quantity {
+  margin-bottom: 10px; /* Add spacing below the quantity input */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quantity label {
+  margin-right: 10px; /* Space between label and input */
+  font-size: 14px;
+}
+
+.quantity input {
+  width: 50px; /* Set a fixed width for the input */
+  padding: 5px;
+  font-size: 14px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .buttons {
